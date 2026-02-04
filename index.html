@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emre Cingöz | Galeri</title>
+  <meta charset="UTF-8">
+  <title>Özel Galeri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #0b0b0f;
       color: #fff;
     }
-    header {
-      padding: 16px;
-      text-align: center;
+
+    /* GİRİŞ EKRANI */
+    #login {
+      position: fixed;
+      inset: 0;
+      background: #0b0b0f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .login-box {
       background: #111;
-      font-size: 1.2rem;
+      padding: 24px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 14px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 12px;
+      outline: none;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #1e90ff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .error {
+      color: #ff5555;
+      margin-top: 10px;
+      display: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 16px;
+      background: #111;
+      font-size: 1.1rem;
       letter-spacing: 1px;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 10px;
       padding: 10px;
     }
+
     .gallery img {
       width: 100%;
       height: 100%;
@@ -32,9 +91,11 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.03);
     }
+
     .lightbox {
       position: fixed;
       inset: 0;
@@ -44,12 +105,13 @@
       justify-content: center;
       z-index: 999;
     }
+
     .lightbox img {
       max-width: 95%;
       max-height: 90%;
       border-radius: 14px;
     }
-    .lightbox:active { display: none; }
+
     footer {
       text-align: center;
       padding: 12px;
@@ -58,80 +120,81 @@
     }
   </style>
 </head>
+
 <body>
 
-<div id="login" style="position:fixed;inset:0;background:#0b0b0f;display:flex;align-items:center;justify-content:center;z-index:1000;">
-  <div style="background:#111;padding:24px;border-radius:16px;width:90%;max-width:320px;text-align:center;">
-    <h2 style="margin-bottom:12px;">🔒 Galeri Girişi</h2>
-    <input type="password" id="password" placeholder="Şifre" style="width:100%;padding:10px;border-radius:8px;border:none;margin-bottom:12px;" />
-    <button onclick="checkPassword()" style="width:100%;padding:10px;border:none;border-radius:8px;background:#1e90ff;color:#fff;font-weight:bold;">Giriş</button>
-    <p id="error" style="color:#ff5555;margin-top:10px;display:none;">Şifre yanlış</p>
+<!-- ŞİFRE EKRANI -->
+<div id="login">
+  <div class="login-box">
+    <h2>🔒 Galeri Girişi</h2>
+    <input type="password" id="password" placeholder="Şifre">
+    <button onclick="checkPassword()">Giriş</button>
+    <div class="error" id="error">Şifre yanlış</div>
   </div>
 </div>
 
 <header>
-  📸 Emre Cingöz – Fotoğraf Galerisi
+  📸 Özel Fotoğraf Galerisi
 </header>
 
 <main class="gallery">
-  <!-- FOTOĞRAFLAR BURAYA -->
-  <img src="images/1.jpg" alt="foto" />
-  <img src="images/2.jpg" alt="foto" />
-  <img src="images/3.jpg" alt="foto" />
-  <img src="images/4.jpg" alt="foto" />
-  <img src="images/5.jpg" alt="foto" />
-  <img src="images/6.jpg" alt="foto" />
-  <img src="images/7.jpg" alt="foto" />
-  <img src="images/8.jpg" alt="foto" />
-  <img src="images/9.jpg" alt="foto" />
-  <img src="images/10.jpg" alt="foto" />
-  <img src="images/11.jpg" alt="foto" />
-  <img src="images/12.jpg" alt="foto" />
-  <img src="images/13.jpg" alt="foto" />
-  <img src="images/14.jpg" alt="foto" />
-  <img src="images/15.jpg" alt="foto" />
-  <img src="images/16.jpg" alt="foto" />
-  <img src="images/17.jpg" alt="foto" />
-  <img src="images/18.jpg" alt="foto" />
-  <img src="images/19.jpg" alt="foto" />
-  <img src="images/20.jpg" alt="foto" />
-  <img src="images/21.jpg" alt="foto" />
-  <img src="images/22.jpg" alt="foto" />
+  <img src="images/1.jpg">
+  <img src="images/2.jpg">
+  <img src="images/3.jpg">
+  <img src="images/4.jpg">
+  <img src="images/5.jpg">
+  <img src="images/6.jpg">
+  <img src="images/7.jpg">
+  <img src="images/8.jpg">
+  <img src="images/9.jpg">
+  <img src="images/10.jpg">
+  <img src="images/11.jpg">
+  <img src="images/12.jpg">
+  <img src="images/13.jpg">
+  <img src="images/14.jpg">
+  <img src="images/15.jpg">
+  <img src="images/16.jpg">
+  <img src="images/17.jpg">
+  <img src="images/18.jpg">
+  <img src="images/19.jpg">
+  <img src="images/20.jpg">
+  <img src="images/21.jpg">
+  <img src="images/22.jpg">
 </main>
 
 <div class="lightbox" id="lightbox">
-  <img src="" alt="buyuk" />
+  <img src="">
 </div>
 
 <footer>
-  © 2026 Emre Cingöz
+  © 2026
 </footer>
 
 <script>
   const correctPassword = "1234"; // BURADAN ŞİFREYİ DEĞİŞTİR
 
   function checkPassword() {
-    const input = document.getElementById('password').value;
+    const input = document.getElementById("password").value;
     if (input === correctPassword) {
-      document.getElementById('login').style.display = 'none';
+      document.getElementById("login").style.display = "none";
     } else {
-      document.getElementById('error').style.display = 'block';
+      document.getElementById("error").style.display = "block";
     }
   }
 
-  const images = document.querySelectorAll('.gallery img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = lightbox.querySelector('img');
+  const images = document.querySelectorAll(".gallery img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox.querySelector("img");
 
   images.forEach(img => {
-    img.addEventListener('click', () => {
+    img.addEventListener("click", () => {
       lightboxImg.src = img.src;
-      lightbox.style.display = 'flex';
+      lightbox.style.display = "flex";
     });
   });
 
-  lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
   });
 </script>
 
